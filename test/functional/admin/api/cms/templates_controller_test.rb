@@ -93,7 +93,7 @@ class Admin::Api::CMS::TemplatesControllerTest < ActionController::TestCase
       end
 
       def test_create_page_section_id_unknown
-        post :create, params: { section_id: 100, type: 'page',
+        post :create, params: { section_id: @section.id + 1, type: 'page',
                                 title: 'About', path: '/about', format: :json, access_token: @token }
 
         assert_response :unprocessable_entity
